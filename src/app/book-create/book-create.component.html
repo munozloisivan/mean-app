@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" xmlns:display="http://www.w3.org/1999/xhtml">
 <h1>Add New Book</h1>
 <div class="row">
   <div class="col-md-6">
@@ -16,7 +16,7 @@
         <input type="text" class="form-control" [(ngModel)]="idA"  name="author" required>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" [(ngModel)]="book.author"  name="author" required>
+        <input type="hidden" class="form-control" [(ngModel)]="book.author" name="author" required>
       </div>
       <div class="form-group">
         <label for="name">Publisher</label>
@@ -39,6 +39,7 @@
       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </a>
   </h1>
+  <h4>Selecciona el autor a añadir al libro o añade uno</h4>
   <table class="table">
     <thead>
     <tr>

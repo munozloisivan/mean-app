@@ -18,7 +18,6 @@ export class BookCreateComponent implements OnInit {
     publisher: String,
     price: Number,
   };
-  // idA: number;
 
   constructor(private bookService: BookService, private router: Router, private authorService: AuthorService) { }
 

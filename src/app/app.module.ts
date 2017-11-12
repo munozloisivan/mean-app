@@ -19,10 +19,12 @@ import { BookEditComponent } from './book-edit/book-edit.component';
 import { AuthorCreateComponent } from './author-create/author-create.component';
 import { AuthorDetailComponent } from './author-detail/author-detail.component';
 import { AuthorEditComponent } from './author-edit/author-edit.component';
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'books', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'books', component: BookComponent },
   { path: 'book-details/:id', component: BookDetailComponent },
   { path: 'book-create', component: BookCreateComponent },
@@ -44,7 +46,8 @@ const appRoutes: Routes = [
     BookEditComponent,
     AuthorCreateComponent,
     AuthorDetailComponent,
-    AuthorEditComponent
+    AuthorEditComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
