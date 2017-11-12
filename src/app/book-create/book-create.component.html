@@ -13,7 +13,10 @@
       </div>
       <div class="form-group">
         <label for="name">Author</label>
-        <input type="text" class="form-control" [(ngModel)]="book.author" name="author" required>
+        <input type="text" class="form-control" [(ngModel)]="idA"  name="author" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="book.author"  name="author" required>
       </div>
       <div class="form-group">
         <label for="name">Publisher</label>
@@ -30,3 +33,28 @@
   </div>
 </div>
 </div>
+<div class="container">
+  <h1>Author Catalogue
+    <a [routerLink]="['/author-create']" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+  </h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Location</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let author of authors">
+      <td>{{ author.name }}</td>
+      <td>{{ author.surnames }}</td>
+      <td>{{ author.nacionalidad }}</td>
+      <td><a class="btn btn-info" (click)=setAutor(author._id)>Seleccionar</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

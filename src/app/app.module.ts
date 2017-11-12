@@ -52,8 +52,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [BookService, {provide: LocationStrategy, useClass: HashLocationStrategy},
-    AuthorService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [BookService, AuthorService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
