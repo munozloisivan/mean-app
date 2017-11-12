@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Author Catalogue
+    <a [routerLink]="['/author-create']" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+  </h1>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Location</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let author of authors">
+      <td>{{ author.name }}</td>
+      <td>{{ author.surnames }}</td>
+      <td>{{ author.nacionalidad }}</td>
+      <td><a [routerLink]="['/author-details', author._id]" class="btn btn-info" (click)="getAuthorDetail(author._id)">Detalles</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
