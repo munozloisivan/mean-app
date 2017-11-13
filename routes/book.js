@@ -43,4 +43,16 @@ router.delete('/:id', function(req, res, next) {
   });
 });
 
+/* ADD AUTHOR TO A BOOK */
+router.post('/:id/authors/:idauthor', function (req, res, next) {
+  console.log('book routes -- params.author= ' + req.params.idauthor);
+  Book.update({ _id: req.params.id },
+    {"$push": { "author" :  req.params.idauthor }},
+    function (err, post) {
+      if (err) return next(err);
+      res.json(post);
+    });
+});
+
+
 module.exports = router;

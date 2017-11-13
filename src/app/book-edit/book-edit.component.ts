@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookService } from '../book.service';
+import { AuthorService } from '../author.service';
 
 @Component({
   selector: 'app-book-edit',
@@ -9,12 +10,14 @@ import { BookService } from '../book.service';
 })
 export class BookEditComponent implements OnInit {
 
+  authors: any;
   book = {};
 
-  constructor(private bookService: BookService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private bookService: BookService, private router: Router, private route: ActivatedRoute, private authorService: AuthorService) { }
 
   ngOnInit() {
     this.getBook(this.route.snapshot.params['id']);
+    this.getAuthorList();
   }
 
   getBook(id) {
@@ -34,5 +37,32 @@ export class BookEditComponent implements OnInit {
       console.log(err);
     });
   }
+
+  getAuthorList() {
+    this.authorService.getAllAuthors().then((res) => {
+      this.authors = res;
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  setAutor(idbook, idauthor) {
+    console.log('book.edit component --- BOOK ID : '+ idbook + 'IDAUTHOR: ' + idauthor);
+    this.bookService.addAuthorToBook(idbook, idauthor).then((result) => {
+      this.getBook(this.route.snapshot.params['id']);
+      this.getAuthorList();
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  /* addAuthor(idbook, idauthor) {
+     this.bookService.addAuthorToBook(idbook, idauthor).then((result) => {
+       this.getBook(this.route.snapshot.params['id']);
+     }, (err) => {
+       console.log(err);
+     });
+   }
+   */
 
 }

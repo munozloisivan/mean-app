@@ -66,4 +66,17 @@ export class BookService {
     });
   }
 
+  addAuthorToBook(idbook, idauthor) {
+    console.log('BookService AddAuthor -- idbook: ' + idbook + 'idauthor:' + idauthor);
+    return new Promise((resolve, reject) => {
+      this.http.post('/book/' + idbook + '/authors/' + idauthor, null)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }
+
+
