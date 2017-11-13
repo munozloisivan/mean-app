@@ -56,13 +56,13 @@ export class BookEditComponent implements OnInit {
     });
   }
 
-  /* addAuthor(idbook, idauthor) {
-     this.bookService.addAuthorToBook(idbook, idauthor).then((result) => {
-       this.getBook(this.route.snapshot.params['id']);
-     }, (err) => {
-       console.log(err);
-     });
-   }
-   */
+  deleteAuthor(idbook, idauthor) {
+    console.log('book.edit  DELETE AUTHOR --- BOOK ID : ' + idbook + 'IDAUTHOR: ' + idauthor);
+    this.bookService.deleteAuthorFromBook(idbook, idauthor).then((result) => {
+      this.getBook(this.route.snapshot.params['id']);
+    }, (err) => {
+      console.log(err);
+    });
+  }
 
 }

@@ -77,6 +77,17 @@ export class BookService {
         });
     });
   }
+
+  deleteAuthorFromBook(id, idauthor) {
+    return new Promise((resolve, reject) => {
+      this.http.put('/book/' + id + '/authors/' + idauthor, null)
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }
 
 

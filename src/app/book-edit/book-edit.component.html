@@ -49,6 +49,9 @@
       <td>{{ author.name }}</td>
       <td>{{ author.surnames }}</td>
       <td><a class="btn btn-info" (click)=setAutor(book._id,author._id)>Añadir autor</a></td>
+      <td><a (click)="deleteAuthor(book._id, author._id)" class="btn btn-danger btn-xs">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      </a></td>
     </tr>
     </tbody>
   </table>

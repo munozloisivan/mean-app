@@ -54,5 +54,14 @@ router.post('/:id/authors/:idauthor', function (req, res, next) {
     });
 });
 
+/* DELETE STUDENT FROM SUBJECT */
+router.put('/:id/authors/:idauthor', function (req, res, next) {
+  Book.update({ _id: req.params.id },
+    {"$pull": { "author" :  req.params.idauthor }},
+    function (err, post) {
+      if (err) return next(err);
+      res.json(post);
+    });
+});
 
 module.exports = router;
