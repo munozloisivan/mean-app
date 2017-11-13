@@ -25,7 +25,7 @@ app.use('/author', author);
 mongoose.Promise = global.Promise;
 
 
-mongoose.connect('mongodb://localhost/mean-app', function(err, res) {
+mongoose.connect('mongodb://localhost/school-app', function(err, res) {
   if(err) throw err;
   console.log('Connected to Database');
 });

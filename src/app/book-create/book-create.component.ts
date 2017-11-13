@@ -12,11 +12,11 @@ import {AuthorService} from '../author.service';
 export class BookCreateComponent implements OnInit {
   authors: any;
   book = {
-    isbn: String,
+    // isbn: String,
     title: String,
     author: [{type: Number}],
     publisher: String,
-    price: Number,
+    // price: Number,
   };
 
   constructor(private bookService: BookService, private router: Router, private authorService: AuthorService) { }
